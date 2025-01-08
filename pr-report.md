@@ -192,3 +192,31 @@ Both versions (v20 and v21) showed identical behavior:
 1. Safe to proceed with Taquito v21 upgrade for contract interactions
 2. Network connectivity issues should be addressed separately
 3. Consider adding integration tests for specific Ledger Live Desktop contract interactions
+
+## Testing Results for PR #8826 (Taquito Upgrade to v21.0.0)
+
+### Environment
+- Testing on Ubuntu with physical Ledger Nano S
+- Successfully built and ran both main and support/taquitoV21 branches
+- Able to connect device and create/access Tezos account
+
+### Issues Found (Not PR-Specific)
+1. Send Operation:
+   - Error: `GET https://xtz-node.api.live.ledger.com/chains/main/blocks/head/context/constants TypeError: Failed to fetch`
+   - Occurs on both main and Taquito upgrade branches
+   - Suggests infrastructure/connectivity issue with Ledger's Tezos node
+
+2. Staking/Delegation:
+   - Error: `Cannot access 'bakers' before initialization`
+   - Occurs on both branches
+   - Indicates issue with baker list initialization
+
+### Conclusions
+- Issues appear to be infrastructure-related rather than Taquito upgrade specific
+- Basic account creation and balance viewing works
+- Network connectivity to Ledger's Tezos services needs investigation
+
+### Recommendations
+1. These issues should be tracked separately from the Taquito upgrade
+2. Infrastructure team should investigate Tezos node connectivity
+3. Baker list initialization should be investigated as a separate issue
