@@ -1,18 +1,20 @@
 {
   "name": "test",
   "version": "1.0.0",
+  "description": "",
   "main": "test-tezos.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test-tezos.js",
+    "test:quebec": "node test-quebec-delegation.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "@taquito/rpc": "^21.0.0",
+    "@taquito/signer": "^21.0.0",
     "@taquito/taquito": "^21.0.0",
-    "@taquito/utils": "^20.1.2"
+    "@taquito/utils": "^21.0.0"
   }
 }
